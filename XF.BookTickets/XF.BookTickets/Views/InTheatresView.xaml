@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<views:ViewBase
+            xmlns:views="clr-namespace:XF.BookTickets.Views.Base"
+            xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:controls="clr-namespace:DLToolkit.Forms.Controls;assembly=DLToolkit.Forms.Controls.FlowListView"
+            x:Class="XF.BookTickets.Views.InTheatresView">
+
+    <StackLayout Margin="10">
+        <controls:FlowListView 
+                                FlowItemsSource="{Binding ListInTheatres}"
+                                FlowColumnCount="2"
+                                SeparatorVisibility="None"
+                                HasUnevenRows="True"
+                                x:Name="ListMovie">
+            <controls:FlowListView.Header>
+                <Label Text="EAP Movies" TextColor="#322153" FontSize="20" HorizontalOptions="CenterAndExpand"
+               FontAttributes="Bold" Margin="0,6,0,0"/>
+            </controls:FlowListView.Header>
+            <controls:FlowListView.FlowColumnTemplate>
+                <DataTemplate>
+                    <StackLayout Margin="11,12,6,4" >
+                        <Frame  Padding="0"
+                           CornerRadius="10"
+                           >
+                            <Image Source="{Binding Image}" Aspect="Fill" HeightRequest="240">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer 
+                                        Command="{Binding Path=BindingContext.MovieDetailCommand, Source={x:Reference Name=ListMovie}}" 
+                                        CommandParameter="{Binding .}"/>
+                                </Image.GestureRecognizers>
+                            </Image>
+                        </Frame>
+
+
+                        <StackLayout Margin="5,15,5,0">
+                            <Label Text="{Binding Name}" FontSize="11" TextColor="#322153" FontAttributes="Bold" 
+                                   VerticalOptions="FillAndExpand" VerticalTextAlignment="Center" 
+                                   HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+
+
+                            
+                        </StackLayout>
+                        <Button Text="Buy Tickets"
+                                                BackgroundColor="Red"  VerticalOptions="Center" BorderRadius="10" 
+                                                TextColor="White" Margin="0" HorizontalOptions="EndAndExpand"
+                                                
+                                                HeightRequest="35" WidthRequest="195"
+                                                FontSize="12" FontAttributes="Bold"
+                                         />
+                    </StackLayout>
+                </DataTemplate>
+            </controls:FlowListView.FlowColumnTemplate>
+        </controls:FlowListView>
+    </StackLayout>
+</views:ViewBase>

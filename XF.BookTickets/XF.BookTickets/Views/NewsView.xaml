@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<view:ViewBase xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XF.BookTickets.Views.NewsView"
+             xmlns:view="clr-namespace:XF.BookTickets.Views.Base"
+               xmlns:effects="clr-namespace:FormsCommunityToolkit.Effects;assembly=FormsCommunityToolkit.Effects">
+
+    <ListView ItemsSource="{Binding ListNews}" HasUnevenRows="True" 
+              SeparatorVisibility="None" SeparatorColor="Transparent"
+                  ItemSelected="ListView_ItemSelected"
+              x:Name="listNews">
+        <ListView.Header>
+            <Label Text="EAP Movies" TextColor="#322153" FontSize="20" HorizontalOptions="CenterAndExpand"
+               FontAttributes="Bold" Margin="0,14,0,2"/>
+        </ListView.Header>
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <Frame IsClippedToBounds="True" 
+                            CornerRadius="10" HasShadow="True"  BackgroundColor="White" Padding="0" Margin="17,7,17,7">
+                        <StackLayout Orientation="Horizontal">
+
+                            <Image Source="{Binding Image}" Aspect="Fill" WidthRequest="120"/>
+
+                            <StackLayout Orientation="Vertical" Spacing="10" Margin="5,10,5,0">
+
+                                <Label Text="{Binding Title}" FontAttributes="Bold" TextColor="#322153" FontSize="14"/>
+                                <Label Text="{Binding Description}" FontSize="12"/>
+
+                                <StackLayout Margin="0,7,17,17">
+
+                                    <Button Text="Read more" BorderColor="Red" BorderWidth="1" 
+                                                BackgroundColor="White"  VerticalOptions="Center" BorderRadius="10" 
+                                                TextColor="Red" Margin="0" HorizontalOptions="End"
+                                                HeightRequest="35" WidthRequest="100"
+                                                FontSize="11" FontAttributes="Bold"
+                                                Command="{Binding Path=BindingContext.ReadMoreCommand, Source={x:Reference Name=listNews}}"
+                                                CommandParameter="{Binding .}"
+                                         />
+
+                                </StackLayout>
+                            </StackLayout>
+                        </StackLayout>
+                    </Frame>
+                    <ViewCell.Effects>
+                        <effects:EntryRemoveBorder/>
+                    </ViewCell.Effects>
+                    <ViewCell.ContextActions></ViewCell.ContextActions>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+
+</view:ViewBase>

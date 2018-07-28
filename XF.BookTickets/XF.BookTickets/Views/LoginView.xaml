@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<view:ViewBase xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XF.BookTickets.Views.LoginView"
+             xmlns:view="clr-namespace:XF.BookTickets.Views.Base"
+               xmlns:effects="clr-namespace:FormsCommunityToolkit.Effects;assembly=FormsCommunityToolkit.Effects"
+               NavigationPage.HasNavigationBar="False"
+             BackgroundColor="#f2f1f4">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="LabelColor" TargetType="Label">
+                <Setter Property="TextColor" Value="#65597e"/>
+            </Style>
+            <Style x:Key="PlaceholderColor" TargetType="Entry">
+                <Setter Property="PlaceholderColor" Value="#65597e"/>
+            </Style>
+        </ResourceDictionary> 
+    </ContentPage.Resources>
+    
+<ContentPage.Content>
+        <StackLayout Padding="20" Margin="0,5,0,0" Spacing="20">
+            <Label Text="Signin" HorizontalOptions="CenterAndExpand" VerticalOptions="Start" 
+                   FontSize="24"
+                   TextColor="#65597e"
+                   FontAttributes="Bold"/>
+
+            <Frame Padding="0" BackgroundColor="Gray"
+                   CornerRadius="10"
+                   IsClippedToBounds="True"
+                   HasShadow="True"
+                   OutlineColor="Blue">
+                <StackLayout BackgroundColor="White" Padding="15" Spacing="15">
+                    <Label Text="Username" FontSize="18" FontAttributes="Bold"
+                           Style="{StaticResource Key=LabelColor}"/>
+
+                    <Frame OutlineColor="#DCDCDC"
+                           HorizontalOptions="FillAndExpand"
+                           VerticalOptions="Center"
+                           HasShadow="false"
+                           Padding="10,0,0,0"
+                           CornerRadius="6"
+                           BorderColor="#DCDCDC"
+                           BackgroundColor="White"
+                           Margin="0">
+                        <Frame.Content>
+                            <StackLayout 
+                                             VerticalOptions="Center">
+                                <Entry x:Name="TxtUsername"
+                                       TextColor="#f15a23"
+                                       PlaceholderColor="#8c8c8c"
+                                       Margin="0,0,0,0"
+                                       BackgroundColor="Transparent"
+                                       Placeholder="Enter Username" Text="{Binding Username}">
+                                    <Entry.Effects>
+                                        <effects:EntryRemoveLine />
+                                    </Entry.Effects>
+                                </Entry>
+                            </StackLayout>
+
+                        </Frame.Content>
+                    </Frame>
+
+
+                    <Label Text="Password" FontSize="18" FontAttributes="Bold"
+                           Style="{StaticResource Key=LabelColor}"/>
+
+                    <Frame OutlineColor="#DCDCDC"
+                           HorizontalOptions="FillAndExpand"
+                           VerticalOptions="Center"
+                           HasShadow="false"
+                           Padding="10,0,0,0"
+                           CornerRadius="6"
+                           BorderColor="#DCDCDC"
+                           BackgroundColor="White"
+                           Margin="0">
+                        <Frame.Content>
+                            <StackLayout 
+                                             VerticalOptions="Center">
+                                <Entry x:Name="TxtPassword"
+                                       TextColor="#f15a23"
+                                       PlaceholderColor="#8c8c8c"
+                                       
+                                       Margin="0,0,0,0"
+                                       BackgroundColor="Transparent"
+                                       Placeholder="Enter Password" Text="{Binding Password}" IsPassword="True">
+                                    <Entry.Effects>
+                                        <effects:EntryRemoveLine />
+                                    </Entry.Effects>
+                                </Entry>
+                            </StackLayout>
+
+                        </Frame.Content>
+                    </Frame>
+
+                    
+
+                    <Label Text="Forgot password?"
+                           FontAttributes="Bold"
+                           Style="{StaticResource Key=LabelColor}" HorizontalOptions="End" Margin="0,-3,0,15"
+                           FontSize="16"/>
+                    
+                    <Button Text="Sign In" BackgroundColor="Red" TextColor="#ffffff" Command="{Binding LoginCommand}"
+                            BorderRadius="8"
+                            />
+
+                    <ActivityIndicator HeightRequest="30"
+                               WidthRequest="30"
+                               IsRunning="{Binding IsBusy}"
+                               IsVisible="{Binding IsBusy}"
+                               />
+                </StackLayout>
+            </Frame>
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="EndAndExpand">
+                <Label Text="Don't have an account?" FontSize="16"
+                       Style="{StaticResource Key=LabelColor}"/>
+                <Label Text="Signup" FontSize="16"
+                       TextColor="#fd2e2e" FontAttributes="Bold">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding RegisterCommand}"/>
+                    </Label.GestureRecognizers>
+                </Label>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</view:ViewBase>

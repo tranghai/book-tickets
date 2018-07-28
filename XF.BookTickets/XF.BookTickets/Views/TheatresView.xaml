@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<view:ViewBase xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:view="clr-namespace:XF.BookTickets.Views.Base"
+               xmlns:effects="clr-namespace:FormsCommunityToolkit.Effects;assembly=FormsCommunityToolkit.Effects"
+               x:Class="XF.BookTickets.Views.TheatresView">
+
+
+    <ListView ItemsSource="{Binding ListTheartres}" HasUnevenRows="True" 
+              SeparatorVisibility="None" SeparatorColor="Transparent"
+                  ItemSelected="ListView_ItemSelected">
+
+        <ListView.Header>
+            <Label Text="EAP Movies" TextColor="#322153" FontSize="20" HorizontalOptions="CenterAndExpand"
+               FontAttributes="Bold" Margin="0,14,0,2"/>
+        </ListView.Header>
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <Frame IsClippedToBounds="True" 
+                            CornerRadius="10" HasShadow="True"  BackgroundColor="White" Padding="0" Margin="17,7,17,7">
+                        <StackLayout Orientation="Horizontal">
+
+                            <Image Source="{Binding Image}" Aspect="Fill" WidthRequest="120"/>
+
+                            <StackLayout Orientation="Vertical" Spacing="8" Margin="5,10,5,15">
+
+                                <Label Text="{Binding Name}" FontAttributes="Bold" TextColor="#322153" FontSize="16"/>
+
+                                <StackLayout Orientation="Horizontal">
+                                    <Image Source="icon_location_16.png"/>
+                                    <Label Text="{Binding Address }" FontSize="12"/>
+                                </StackLayout>
+
+                                <StackLayout Orientation="Horizontal">
+                                    <Image Source="icon_phone_16.png"/>
+                                    <Label Text="{Binding Phone }" FontSize="12"/>
+                                </StackLayout>
+
+                                <StackLayout Orientation="Horizontal">
+                                    <Image Source="icon_mail_16.png"/>
+                                    <Label Text="{Binding Email }" FontSize="12"/>
+                                </StackLayout>
+
+                            </StackLayout>
+                        </StackLayout>
+                    </Frame>
+                    <ViewCell.Effects>
+                        <effects:EntryRemoveBorder/>
+                    </ViewCell.Effects>
+                    <ViewCell.ContextActions></ViewCell.ContextActions>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+
+</view:ViewBase>

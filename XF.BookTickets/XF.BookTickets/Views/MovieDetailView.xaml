@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<views:ViewBase
+             xmlns:views="clr-namespace:XF.BookTickets.Views.Base"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:forms="clr-namespace:Plugin.MediaManager.Forms;assembly=Plugin.MediaManager.Forms"
+    x:Class="XF.BookTickets.Views.MovieDetailView">
+    
+    <ContentPage.Content>
+        <StackLayout>
+
+            <Button Text="Play" Clicked="PlayStopButton_Clicked"
+                    x:Name="PlayStopButton"/>
+
+            <forms:VideoView WidthRequest="360"
+                             HeightRequest="202"/>
+
+        </StackLayout>
+    </ContentPage.Content>
+</views:ViewBase>

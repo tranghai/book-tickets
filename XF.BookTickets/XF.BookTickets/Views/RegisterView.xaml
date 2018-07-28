@@ -1,0 +1,195 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<view:ViewBase xmlns:view="clr-namespace:XF.BookTickets.Views.Base" xmlns="http://xamarin.com/schemas/2014/forms"
+               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:effects="clr-namespace:FormsCommunityToolkit.Effects;assembly=FormsCommunityToolkit.Effects"
+               x:Class="XF.BookTickets.Views.RegisterView"
+               NavigationPage.HasNavigationBar="False">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="LabelColor" TargetType="Label">
+                <Setter Property="TextColor" Value="#65597e"/>
+            </Style>
+            <Style x:Key="PlaceholderColor" TargetType="Entry">
+                <Setter Property="PlaceholderColor" Value="#65597e"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+
+    <ContentPage.Content>
+
+
+        <StackLayout Padding="20" Margin="0">
+            <Label Text="Signup" HorizontalOptions="CenterAndExpand" VerticalOptions="Start"
+                   Font="24" TextColor="#65597e" FontAttributes="Bold" Margin="0,0,0,10"/>
+
+            <Frame Padding="0" BackgroundColor="Gray" CornerRadius="10" IsClippedToBounds="True"
+                   HasShadow="True" OutlineColor="Blue">
+                <StackLayout BackgroundColor="White" Padding="15" Spacing="8">
+
+                    <StackLayout Orientation="Horizontal">
+
+                        <StackLayout HorizontalOptions="FillAndExpand">
+                            <Label Text="Firstname" FontSize="16" FontAttributes="Bold"
+                           Style="{StaticResource Key=LabelColor}"/>
+                            <Frame OutlineColor="#DCDCDC" HorizontalOptions="FillAndExpand" VerticalOptions="Center"
+                           HasShadow="false" Padding="10,0,0,0" CornerRadius="6" 
+                           BorderColor="#DCDCDC" BackgroundColor="White" Margin="0">
+                                <Frame.Content>
+                                    <StackLayout VerticalOptions="Center">
+                                        <Entry x:Name="txtFirstName" TextColor="#f15a23" PlaceholderColor="#8c8c8c"
+                                       Margin="0,0,0,0" BackgroundColor="Transparent"
+                                       Placeholder="Enter first name" Text="{Binding Firstname}" FontSize="16">
+                                            <Entry.Effects>
+                                                <effects:EntryRemoveLine />
+                                            </Entry.Effects>
+                                        </Entry>
+                                    </StackLayout>
+                                </Frame.Content>
+                            </Frame>
+                        </StackLayout>
+
+                        <StackLayout HorizontalOptions="FillAndExpand">
+                            <Label Text="Lastname" FontSize="16" FontAttributes="Bold"
+                           Style="{StaticResource Key=LabelColor}"/>
+                            <Frame OutlineColor="#DCDCDC" HorizontalOptions="FillAndExpand" VerticalOptions="Center"
+                           HasShadow="false" Padding="10,0,0,0" CornerRadius="6" 
+                           BorderColor="#DCDCDC" BackgroundColor="White" Margin="0">
+                                <Frame.Content>
+                                    <StackLayout VerticalOptions="Center">
+                                        <Entry x:Name="txtLastname" TextColor="#f15a23" PlaceholderColor="#8c8c8c"
+                                       Margin="0,0,0,0" BackgroundColor="Transparent"  FontSize="16"
+                                       Placeholder="Enter last name" Text="{Binding Lastname}">
+                                            <Entry.Effects>
+                                                <effects:EntryRemoveLine />
+                                            </Entry.Effects>
+                                        </Entry>
+                                    </StackLayout>
+                                </Frame.Content>
+                            </Frame>
+                        </StackLayout>
+
+                    </StackLayout>
+
+                    <StackLayout>
+                        <Label Text="Username" FontSize="16" FontAttributes="Bold"
+                           Style="{StaticResource Key=LabelColor}"/>
+                        <Frame OutlineColor="#DCDCDC" HorizontalOptions="FillAndExpand" VerticalOptions="Center"
+                           HasShadow="false" Padding="10,0,0,0" CornerRadius="6" 
+                           BorderColor="#DCDCDC" BackgroundColor="White" Margin="0">
+                            <Frame.Content>
+                                <StackLayout VerticalOptions="Center">
+                                    <Entry x:Name="txtUsername" TextColor="#f15a23" PlaceholderColor="#8c8c8c"
+                                       Margin="0,0,0,0" BackgroundColor="Transparent" FontSize="16"
+                                       Placeholder="Enter username" Text="{Binding Username}">
+                                        <Entry.Effects>
+                                            <effects:EntryRemoveLine />
+                                        </Entry.Effects>
+                                    </Entry>
+                                </StackLayout>
+                            </Frame.Content>
+                        </Frame>
+                    </StackLayout>
+                    
+                    <Label Text="Mobile number" FontSize="16" FontAttributes="Bold"
+                           Style="{StaticResource Key=LabelColor}"/>
+
+                    <StackLayout Orientation="Horizontal">
+                        <StackLayout HorizontalOptions="Start" WidthRequest="60">
+                            <Frame OutlineColor="#DCDCDC" HorizontalOptions="FillAndExpand" VerticalOptions="Center"
+                           HasShadow="false" Padding="10,0,0,0" CornerRadius="6" 
+                           BorderColor="#DCDCDC" BackgroundColor="White" Margin="0">
+                                <Frame.Content>
+                                    <StackLayout VerticalOptions="Center">
+                                        <Picker x:Name="country" Margin="0,0,10,0" HeightRequest="41" >
+                                            <Picker.SelectedIndex>1</Picker.SelectedIndex>
+                                            <Picker.Effects>
+                                                <effects:EntryRemoveLine/>
+                                            </Picker.Effects>
+                                        </Picker>
+                                    </StackLayout>
+                                </Frame.Content>
+                            </Frame>
+                            
+                           
+                            
+                        </StackLayout>
+                        <StackLayout HorizontalOptions="FillAndExpand">
+                            
+                            <Frame OutlineColor="#DCDCDC" HorizontalOptions="FillAndExpand" VerticalOptions="Center"
+                           HasShadow="false" Padding="10,0,0,0" CornerRadius="6" 
+                           BorderColor="#DCDCDC" BackgroundColor="White" Margin="0">
+                                <Frame.Content>
+                                    <StackLayout VerticalOptions="Center">
+                                        <Entry x:Name="txtPhonenumber" TextColor="#f15a23" PlaceholderColor="#8c8c8c"
+                                       Margin="0,0,0,0" BackgroundColor="Transparent" FontSize="16"
+                                       Placeholder="Enter your number" Text="{Binding PhoneNumber}">
+                                            <Entry.Effects>
+                                                <effects:EntryRemoveLine />
+                                            </Entry.Effects>
+                                        </Entry>
+                                    </StackLayout>
+                                </Frame.Content>
+                            </Frame>
+                        </StackLayout>
+                    </StackLayout>
+
+
+                    <StackLayout>
+                        <Label Text="Email" FontSize="16" FontAttributes="Bold"
+                           Style="{StaticResource Key=LabelColor}"/>
+                        <Frame OutlineColor="#DCDCDC" HorizontalOptions="FillAndExpand" VerticalOptions="Center"
+                           HasShadow="false" Padding="10,0,0,0" CornerRadius="6" 
+                           BorderColor="#DCDCDC" BackgroundColor="White" Margin="0">
+                            <Frame.Content>
+                                <StackLayout VerticalOptions="Center">
+                                    <Entry x:Name="txtEmail" TextColor="#f15a23" PlaceholderColor="#8c8c8c"
+                                       Margin="0,0,0,0" BackgroundColor="Transparent" FontSize="16"
+                                       Placeholder="Enter email" Text="{Binding Email}">
+                                        <Entry.Effects>
+                                            <effects:EntryRemoveLine />
+                                        </Entry.Effects>
+                                    </Entry>
+                                </StackLayout>
+                            </Frame.Content>
+                        </Frame>
+                    </StackLayout>
+                    <StackLayout>
+                        <Label Text="Password" FontSize="16" FontAttributes="Bold"
+                           Style="{StaticResource Key=LabelColor}"/>
+                        <Frame OutlineColor="#DCDCDC" HorizontalOptions="FillAndExpand" VerticalOptions="Center"
+                           HasShadow="false" Padding="10,0,0,0" CornerRadius="6" 
+                           BorderColor="#DCDCDC" BackgroundColor="White" Margin="0">
+                            <Frame.Content>
+                                <StackLayout VerticalOptions="Center">
+                                    <Entry x:Name="txtPassword" TextColor="#f15a23" PlaceholderColor="#8c8c8c"
+                                       Margin="0,0,0,0" BackgroundColor="Transparent" FontSize="16"
+                                       Placeholder="Enter password" Text="{Binding Password}" IsPassword="True">
+                                        <Entry.Effects>
+                                            <effects:EntryRemoveLine />
+                                        </Entry.Effects>
+                                    </Entry>
+                                </StackLayout>
+                            </Frame.Content>
+                        </Frame>
+                    </StackLayout>
+
+                    <Button Text="Sign Up" BackgroundColor="Red" TextColor="#ffffff" BorderRadius="8" />
+                </StackLayout>
+            </Frame>
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="EndAndExpand">
+                <Label Text="Already have an account?" FontSize="16"
+                       Style="{StaticResource Key=LabelColor}"/>
+                <Label Text="Signin" FontSize="16"
+                       TextColor="#fd2e2e" FontAttributes="Bold">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding LoginBackCommand}"/>
+                    </Label.GestureRecognizers>
+                </Label>
+            </StackLayout>
+
+        </StackLayout>
+    </ContentPage.Content>
+</view:ViewBase>

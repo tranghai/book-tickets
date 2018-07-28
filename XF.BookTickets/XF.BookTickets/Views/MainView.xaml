@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XF.BookTickets.Views.MainView"
+            xmlns:local="clr-namespace:XF.BookTickets.Views"
+            BackgroundColor="#e8e6eb"
+            BarBackgroundColor="#F1F1F1"
+            xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+            android:TabbedPage.ToolbarPlacement="Bottom"
+            android:TabbedPage.BarItemColor="#666666"
+            android:TabbedPage.BarSelectedItemColor="Black">
+    
+    <!--Pages can be added as references or inline-->
+    <local:InTheatresView/>
+    <local:UpComingView/>
+    <local:TheatresView/>
+    <local:NewsView/>
+    <local:SettingView/>
+</TabbedPage>

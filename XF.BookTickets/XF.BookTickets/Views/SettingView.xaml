@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<view:ViewBase xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XF.BookTickets.Views.SettingView"
+             xmlns:view="clr-namespace:XF.BookTickets.Views.Base">
+
+
+    <ScrollView >
+        
+        <StackLayout Margin="20" VerticalOptions="Fill" Padding="0,0,0,20"
+             HorizontalOptions="StartAndExpand" Spacing="15"
+                     CompressedLayout.IsHeadless="False">
+            <Label Text="EAP Movies" TextColor="#322153" FontSize="20" HorizontalOptions="CenterAndExpand"
+               FontAttributes="Bold" />
+            <Frame CornerRadius="10">
+                <ListView ItemsSource="{Binding ListAccountSetting}"
+                  BackgroundColor="White" SeparatorVisibility="None" SeparatorColor="Transparent"
+                      VerticalOptions="FillAndExpand" HeightRequest="173" HasUnevenRows="True"
+                          ItemSelected="ListView_ItemSelected">
+                    <ListView.Header>
+                        <Label Text="Account" TextColor="Red" FontSize="16" FontAttributes="Bold"/>
+                    </ListView.Header>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell Height="35">
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Name}" VerticalOptions="Center" HorizontalOptions="Start"
+                                           TextColor="#322153" FontAttributes="Bold" FontSize="15"/>
+                                    <Image Source="icon_next_16.png" HorizontalOptions="EndAndExpand"/>
+                                </StackLayout>
+                                
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Frame>
+
+            <Frame CornerRadius="10">
+                <ListView ItemsSource="{Binding ListSupportSetting}"
+                   BackgroundColor="White" SeparatorVisibility="None" SeparatorColor="Transparent"
+                      VerticalOptions="FillAndExpand" HeightRequest="310" HasUnevenRows="True"
+                          ItemSelected="ListView_ItemSelected_1">
+                    <ListView.Header>
+                        <Label Text="Support" TextColor="Red" FontSize="16" FontAttributes="Bold"/>
+                    </ListView.Header>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell Height="35">
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Name}" VerticalOptions="Center" HorizontalOptions="Start"
+                                           TextColor="#322153" FontAttributes="Bold" FontSize="15"/>
+                                    <Image Source="icon_next_16.png" HorizontalOptions="EndAndExpand"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Frame>
+        </StackLayout>
+    </ScrollView>
+</view:ViewBase>
