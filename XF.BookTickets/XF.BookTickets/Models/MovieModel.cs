@@ -23,7 +23,7 @@ namespace XF.BookTickets.Models
                 new MovieModel(){ Id = 1,
                                 Name = "NHIỆM VỤ BẤT KHẢ THI",
                                 Image = "https://www.galaxycine.vn/media/2018/5/17/mi6-intl-payoff-dgtl-1-sht-optimised-vie_1526522434474.jpg",
-                                Actor = "Tom Cruise, Rebecca Ferguson, Vanessa Kirby, Simon Pegg, Henry Cavill",
+                                Actor = "Vanessa Kirby, Simon Pegg, Henry Cavill",
                                 Director = "Christopher McQuarrie",
                                 Type = "Phiêu Lưu, Hành Động",
                                 MoreDescription = "Là một trong những thương hiệu làm nên tên tuổi của Tom Cruise, Mission: Impossible- Fallout được nam minh tinh hàng đầu Hollywood này bỏ ra rất nhiều tâm huyết."},

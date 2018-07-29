@@ -1,5 +1,6 @@
-﻿using Plugin.MediaManager;
-using Plugin.MediaManager.Abstractions.Enums;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using Xamarin.Forms.Xaml;
 using XF.BookTickets.Models;
 using XF.BookTickets.Services;
@@ -8,32 +9,23 @@ using XF.BookTickets.ViewModels;
 namespace XF.BookTickets.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class MovieDetailView
-	{
-        private string videoUrl = "https://www.youtube.com/embed/W--2bfOoR48";
-        public MovieModel Movie { get; set; } 
-        public MovieDetailView ()
+	public partial class MovieDetailView 
+    {
+		public MovieDetailView ()
 		{
 			InitializeComponent ();
-
             BindingContext = ServiceLocator.Instance.Resolve<MovieDetailViewModel>();
 
-		}
+            Random random = new Random();
 
-        private void PlayStopButton_Clicked(object sender, System.EventArgs e)
-        {
-            if(PlayStopButton.Text == "Play")
-            {
-                CrossMediaManager.Current.Play("https://www.youtube.com/embed/W--2bfOoR48", MediaFileType.Video);
+            int id = random.Next(1, 8);
 
-                PlayStopButton.Text = "Stop";
-            }
-            else if(PlayStopButton.Text == "Stop")
-            {
-                CrossMediaManager.Current.Stop();
+            List<MovieModel> movies = MovieData.GetData();
 
-                PlayStopButton.Text = "Play";
-            }
+            MovieModel movie = movies.Where(m => m.Id == id).FirstOrDefault();
+
+            MovieDetail.BindingContext = movie;
+
         }
-    }
+	}
 }

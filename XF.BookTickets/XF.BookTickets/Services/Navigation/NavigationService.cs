@@ -56,7 +56,8 @@ namespace XF.BookTickets.Services.Navigation
                     m.IsPresented = false;
                 }
             }
-            
+
+            viewModel.Init(parameter);
         }
         public Task NavigateAsync(Type viewModelType)
         {

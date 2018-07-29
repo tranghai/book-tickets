@@ -1,20 +1,71 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<views:ViewBase
-             xmlns:views="clr-namespace:XF.BookTickets.Views.Base"
+<base:ViewBase
+             xmlns:base="clr-namespace:XF.BookTickets.Views.Base"
              xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:forms="clr-namespace:Plugin.MediaManager.Forms;assembly=Plugin.MediaManager.Forms"
-    x:Class="XF.BookTickets.Views.MovieDetailView">
-    
+             x:Class="XF.BookTickets.Views.MovieDetailView"
+             NavigationPage.HasNavigationBar="False">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label" x:Key="LabelColor">
+                <Setter Property="TextColor" Value="#322153"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
     <ContentPage.Content>
-        <StackLayout>
+        <ScrollView>
+            <StackLayout x:Name="MovieDetail" Margin="20" CompressedLayout.IsHeadless="False" Spacing="10">
+                <Label Text="EAP Movies" TextColor="#322153" FontSize="20" HorizontalOptions="CenterAndExpand"
+               FontAttributes="Bold" Margin="0"/>
 
-            <Button Text="Play" Clicked="PlayStopButton_Clicked"
-                    x:Name="PlayStopButton"/>
+                <Frame CornerRadius="14" 
+                       HorizontalOptions="Center"
+                       WidthRequest="240">
+                    <StackLayout>
+                        <Frame CornerRadius="14"
+                       HeightRequest="320" HorizontalOptions="Center" WidthRequest="253"
+                       Padding="0" Margin="0">
+                            <Image Source="{Binding Image}"
+                            Aspect="Fill"/>
+                        </Frame>
 
-            <forms:VideoView WidthRequest="360"
-                             HeightRequest="202"/>
+                        <Label Text="{Binding Name}" Style="{StaticResource Key=LabelColor}"
+                               FontAttributes="Bold"
+                               HorizontalOptions="Center" 
+                               VerticalOptions="Center" 
+                               VerticalTextAlignment="Center"
+                               Margin="0, 7,0,0"/>
+                    </StackLayout>
 
-        </StackLayout>
+                </Frame>
+
+                <Button Text="Buy Tickets"
+                    BackgroundColor="Red"  VerticalOptions="Center" BorderRadius="10" 
+                    TextColor="White" HorizontalOptions="Center"
+                    HeightRequest="35" WidthRequest="280"
+                    FontSize="12" FontAttributes="Bold" Margin="0,12,0,12"/>
+
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Genres: " Style="{StaticResource Key=LabelColor}" FontAttributes="Bold"/>
+                    <Label Text="{Binding Type}"/>
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Directors: " HorizontalOptions="Fill" Style="{StaticResource Key=LabelColor}" FontAttributes="Bold"/>
+                    <Label Text="{Binding Director}"/>
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Cast: " Style="{StaticResource Key=LabelColor}" FontAttributes="Bold"/>
+                    <Label Text="{Binding Actor}"/>
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Text="{Binding MoreDescription}"/>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
-</views:ViewBase>
+</base:ViewBase>

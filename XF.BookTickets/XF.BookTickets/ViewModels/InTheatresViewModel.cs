@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using Xamarin.Forms;
 using XF.BookTickets.Models;
 using XF.BookTickets.Mvvm.Commands;
-using XF.BookTickets.Services;
 using XF.BookTickets.ViewModels.Base;
-using XF.BookTickets.Views;
 
 namespace XF.BookTickets.ViewModels
 {
@@ -19,21 +16,11 @@ namespace XF.BookTickets.ViewModels
             Icon = "in_theatres_7mdpi.png";
             ListInTheatres = MovieData.GetData();
 
-            MovieDetailCommand = new DelegateCommand<object>(MovieDetail);
+            MovieDetailCommand = new DelegateCommand<object>(
+                (object obj) => { NavigationService.NavigateAsync<MovieDetailViewModel>(obj); }
+                );
         }
 
-        private async void MovieDetail(object obj)
-        {
-            MovieModel movie = (MovieModel)obj;
-
-            var viewModel = ServiceLocator.Instance.Resolve(typeof(MovieDetailViewModel)) as ViewModelBase;
-
-            var viewPage = (Page)Activator.CreateInstance(typeof(MovieDetailView)); 
-
-            viewPage.BindingContext = viewModel;
-
-            await ((NavigationPage)App.Current.MainPage).PushAsync(viewPage);
-        }
 
         public DelegateCommand<object> MovieDetailCommand { get; set; }
     }

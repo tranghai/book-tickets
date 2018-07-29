@@ -20,9 +20,7 @@
             <controls:FlowListView.FlowColumnTemplate>
                 <DataTemplate>
                     <StackLayout Margin="11,12,6,4" >
-                        <Frame  Padding="0"
-                           CornerRadius="10"
-                           >
+                        <Frame Padding="0" CornerRadius="10">
                             <Image Source="{Binding Image}" Aspect="Fill" HeightRequest="240">
                                 <Image.GestureRecognizers>
                                     <TapGestureRecognizer 
@@ -44,7 +42,6 @@
                         <Button Text="Buy Tickets"
                                                 BackgroundColor="Red"  VerticalOptions="Center" BorderRadius="10" 
                                                 TextColor="White" Margin="0" HorizontalOptions="EndAndExpand"
-                                                
                                                 HeightRequest="35" WidthRequest="195"
                                                 FontSize="12" FontAttributes="Bold"
                                          />

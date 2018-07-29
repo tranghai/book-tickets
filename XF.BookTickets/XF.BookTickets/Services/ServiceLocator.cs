@@ -39,5 +39,19 @@ namespace XF.BookTickets.Services
         {
             _containerBuilder.RegisterType<T>();
         }
+
+        public void RegisterViewModel<T>() where T : ViewModels.Base.ViewModelBase
+        {
+            _containerBuilder.RegisterType<T>();
+        }
+
+
+        public void RegisterViewModel<TViewModel, TView>() where TViewModel : ViewModels.Base.ViewModelBase
+            where TView : Xamarin.Forms.Page
+        {
+            RegisterViewModel<TViewModel>();
+
+            Services.Navigation.NavigationService.Mapping.Add(typeof(TViewModel), typeof(TView));
+        }
     }
 }

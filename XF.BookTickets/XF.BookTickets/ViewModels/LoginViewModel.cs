@@ -1,8 +1,6 @@
 ﻿using System.Threading.Tasks;
-using Xamarin.Forms;
 using XF.BookTickets.Mvvm.Commands;
 using XF.BookTickets.ViewModels.Base;
-using XF.BookTickets.Views;
 
 namespace XF.BookTickets.ViewModels
 {
@@ -19,7 +17,7 @@ namespace XF.BookTickets.ViewModels
 
             RegisterCommand = new DelegateCommand(
                 () => {
-                    ((NavigationPage)App.Current.MainPage).PushAsync(new RegisterView());
+                    NavigationService.NavigateAsync<RegisterViewModel>();
                 },
                 () => {
                     return IsNotBusy;
@@ -38,7 +36,7 @@ namespace XF.BookTickets.ViewModels
             await Task.Delay(1000);
             IsBusy = true;
 
-            Application.Current.MainPage = new MainView();
+            await NavigationService.NavigateAsync<MainViewModel>();
         }
 
         private string _username;

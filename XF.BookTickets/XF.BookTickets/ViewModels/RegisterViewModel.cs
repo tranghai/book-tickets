@@ -1,7 +1,5 @@
-﻿using Xamarin.Forms;
-using XF.BookTickets.Mvvm.Commands;
+﻿using XF.BookTickets.Mvvm.Commands;
 using XF.BookTickets.ViewModels.Base;
-using XF.BookTickets.Views;
 
 namespace XF.BookTickets.ViewModels
 {
@@ -14,7 +12,7 @@ namespace XF.BookTickets.ViewModels
             LoginBackCommand = new DelegateCommand(
                 () =>
                 {
-                    ((NavigationPage)App.Current.MainPage).PushAsync(new LoginView());
+                    NavigationService.NavigateAsync<LoginViewModel>();
                 }
                 );
         }

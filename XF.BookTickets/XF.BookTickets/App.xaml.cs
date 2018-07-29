@@ -22,26 +22,26 @@ namespace XF.BookTickets
 
             ServiceLocator.Instance.Register<INavigationService, NavigationService>();
 
-            ServiceLocator.Instance.Register<InTheatresViewModel>();
-            ServiceLocator.Instance.Register<TheatresViewModel>();
-            ServiceLocator.Instance.Register<NewsViewModel>();
-            ServiceLocator.Instance.Register<SettingViewModel>();
-            ServiceLocator.Instance.Register<UpComingViewModel>();
+            ServiceLocator.Instance.RegisterViewModel<MainViewModel, MainView>();
 
-            ServiceLocator.Instance.Register<MovieDetailViewModel>();
+            ServiceLocator.Instance.RegisterViewModel<InTheatresViewModel, InTheatresView>();
+            ServiceLocator.Instance.RegisterViewModel<TheatresViewModel, TheatresView>();
+            ServiceLocator.Instance.RegisterViewModel<NewsViewModel, NewsView>();
+            ServiceLocator.Instance.RegisterViewModel<SettingViewModel, SettingView>();
+            ServiceLocator.Instance.RegisterViewModel<UpComingViewModel, UpComingView>();
 
-            ServiceLocator.Instance.Register<LoginViewModel>();
-            ServiceLocator.Instance.Register<RegisterViewModel>();
+            ServiceLocator.Instance.RegisterViewModel<MovieDetailViewModel, MovieDetailView>();
+
+            ServiceLocator.Instance.RegisterViewModel<LoginViewModel, LoginView>();
+            ServiceLocator.Instance.RegisterViewModel<RegisterViewModel, RegisterView>();
 
             ServiceLocator.Instance.Build();
-
-            MainPage = new NavigationPage(new LoginView());
         }
 
 		protected override void OnStart ()
 		{
-            //ServiceLocator.Instance.Resolve<INavigationService>()
-            //    .NavigateAsync(typeof(LoginViewModel));
+            ServiceLocator.Instance.Resolve<INavigationService>()
+                .NavigateAsync(typeof(LoginViewModel));
 
            
         }

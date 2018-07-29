@@ -8,7 +8,8 @@
             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
             android:TabbedPage.ToolbarPlacement="Bottom"
             android:TabbedPage.BarItemColor="#666666"
-            android:TabbedPage.BarSelectedItemColor="Black">
+            android:TabbedPage.BarSelectedItemColor="Black"
+            NavigationPage.HasNavigationBar="False">
     
     <!--Pages can be added as references or inline-->
     <local:InTheatresView/>
